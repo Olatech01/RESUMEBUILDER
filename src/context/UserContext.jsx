@@ -1,16 +1,42 @@
 "use client";
 import { API_PATH } from "@/utils/apiPaths";
 import axiosInstance from "@/utils/axiosInstance";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 export const UserContext = createContext();
 
+// Custom hook with build-time safety
+export const useUser = () => {
+    const context = useContext(UserContext);
+
+    // Return default values during SSR/build
+    if (typeof window === 'undefined') {
+        return {
+            user: null,
+            loading: true,
+            updateUser: () => { },
+            clearUser: () => { }
+        };
+    }
+
+    if (!context) {
+        throw new Error('useUser must be used within a UserProvider');
+    }
+
+    return context;
+};
 
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        // Skip during SSR
+        if (typeof window === 'undefined') {
+            setLoading(false)
+            return;
+        }
+
         if (user) return;
 
         const accessToken = localStorage.getItem("token")
@@ -47,13 +73,11 @@ const UserProvider = ({ children }) => {
         localStorage.removeItem('token')
     }
 
-
     return (
-        <UserContext.Provider value={{user, loading, updateUser, clearUser}}>
+        <UserContext.Provider value={{ user, loading, updateUser, clearUser }}>
             {children}
         </UserContext.Provider>
     )
 }
-
 
 export default UserProvider;

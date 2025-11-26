@@ -7,7 +7,7 @@ import axiosInstance from '@/utils/axiosInstance'
 import { fixTailwindColors } from '@/utils/color'
 import { ArrowLeft, Check, Download, Loader2, Palette, Save, Trash2 } from 'lucide-react'
 import { useParams, useRouter } from 'next/navigation'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
 
 import StepProgress from '@/components/StepProgress'
@@ -17,6 +17,7 @@ import RenderResume from '@/components/RenderResume'
 import Modal from '@/components/Modal'
 import ThemeSelector from '@/components/ThemeSelector'
 import { resume } from 'react-dom/server'
+import { UserContext } from '@/context/UserContext'
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -39,11 +40,27 @@ const useResizeObserver = () => {
 }
 
 const EditResume = () => {
-    const { id } = useParams()
+    const params = useParams();
+
+
+    if (!params) {
+        return (
+            <DashboardLayout>
+                <div className="flex items-center justify-center h-64">
+                    <div className="text-center">
+                        <Loader2 className="animate-spin mx-auto mb-4" size={32} />
+                        <p>Loading resume...</p>
+                    </div>
+                </div>
+            </DashboardLayout>
+        )
+    }
+    const { id } = params
     // const navigate = useNavigate()
     const router = useRouter()
     const resumeDownloadRef = useRef(null)
     const thumbnailRef = useRef(null)
+    const {user} = useContext(UserContext);
 
     const [openThemeSelector, setOpenThemeSelector] = useState(false)
     const [openPreviewModal, setOpenPreviewModal] = useState(false)
