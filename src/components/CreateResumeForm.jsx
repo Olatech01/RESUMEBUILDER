@@ -5,12 +5,16 @@ import { useRouter } from 'next/navigation'
 import axiosInstance from '@/utils/axiosInstance'
 import { API_PATH } from '@/utils/apiPaths'
 import Inputs from './Inputs'
+import { Loader2, Save } from 'lucide-react'
+import { Plus } from 'react-feather'
+import toast from 'react-hot-toast'
 
 
 const CreateResumeForm = () => {
 
     const [title, setTitle] = useState("")
     const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
     const router = useRouter()
 
 
@@ -18,11 +22,13 @@ const CreateResumeForm = () => {
         e.preventDefault()
 
         try {
+            setLoading(true)
             const response = await axiosInstance.post(API_PATH.RESUME.CREATE, {
                 title
             })
 
             if (response?.data?._id) {
+                toast.success("Resume created successfully!")
                 router.push(`/resume/${response.data?._id}`)
             }
         } catch (error) {
@@ -31,6 +37,8 @@ const CreateResumeForm = () => {
             } else {
                 setError("Something went wrong. Please try again")
             }
+        } finally {
+            setLoading(false)
         }
     }
     return (
@@ -53,12 +61,13 @@ const CreateResumeForm = () => {
                 />
                 {error && <p className='text-red-500 text-sm mb-4'>{error}</p>}
 
-                <button 
-                type='submit'
-                className='w-full py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white
+                <button
+                    type='submit'
+                    className='w-full py-3 flex gap-2 items-center justify-center bg-gradient-to-r from-rose-500 to-pink-600 text-white
                 rounded-2xl hover:scale-105 hover:shadow-xl hover:shadow-rose-200 transition-all'
                 >
-                    Create Resume
+                    {loading ? <Loader2 size={16} className='animate-spin' /> : <Plus size={16} />}
+                    {loading ? "Creating..." : "Create Resume"}
                 </button>
             </form>
         </div>
