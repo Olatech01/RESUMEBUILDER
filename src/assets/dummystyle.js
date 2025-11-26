@@ -13,10 +13,10 @@ export const landingPageStyles = {
     mobileMenuIcon: "text-violet-600",
 
     // Auth buttons
-    desktopAuthButton: "relative group px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-xl hover:shadow-violet-200",
+    desktopAuthButton: "relative group cursor-pointer px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-xl hover:shadow-violet-200",
     desktopAuthButtonText: "relative",
     desktopAuthButtonOverlay: "absolute inset-0 bg-gradient-to-r from-fuchsia-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity",
-    mobileAuthButton: "w-full px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-2xl",
+    mobileAuthButton: "w-full px-6 py-3 bg-gradient-to-r cursor-pointer from-violet-600 to-fuchsia-600 text-white font-bold rounded-2xl",
 
     // Mobile menu
     // Mobile menu
@@ -25,8 +25,8 @@ export const landingPageStyles = {
     mobileMenuContainer: "max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-4",
     mobileUserInfo: "flex flex-col gap-4 py-2",
     mobileUserWelcome: "text-violet-700 font-medium text-center py-2 text-base sm:text-lg",
-    mobileDashboardButton: "w-full px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-violet-200/50 transition-all",
-    mobileAuthButton: "w-full px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-violet-200/50 transition-all",
+    mobileDashboardButton: "w-full px-6 py-3 bg-gradient-to-r cursor-pointer from-violet-600 to-fuchsia-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-violet-200/50 transition-all",
+    // mobileAuthButton: "w-full px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-violet-200/50 transition-all",
     // Main content
     main: "pt-24",
 
@@ -39,14 +39,14 @@ export const landingPageStyles = {
     headingText: "block text-slate-900",
     headingGradient: "block bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 bg-clip-text text-transparent",
     description: "text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed max-w-lg font-medium",
-    ctaButtons: "flex flex-col sm:flex-row gap-4",
+    ctaButtons: "flex flex-col sm:flex-row cursor-pointer gap-4",
 
     // Buttons
-    primaryButton: "group relative px-10 py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-violet-200",
+    primaryButton: "group relative px-10 py-4 cursor-pointer bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-violet-200",
     primaryButtonOverlay: "absolute inset-0 bg-gradient-to-r from-fuchsia-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity",
     primaryButtonContent: "relative flex items-center gap-2 sm:gap-3",
-    primaryButtonIcon: "group-hover:translate-x-1 transition-transform",
-    secondaryButton: "px-8 sm:px-10 py-3 sm:py-4 border-2 border-violet-200 text-violet-700 font-bold rounded-2xl hover:border-violet-300 hover:bg-violet-50 transition-all",
+    primaryButtonIcon: "group-hover:translate-x-1 cursor-pointer transition-transform",
+    secondaryButton: "px-8 sm:px-10 py-3 sm:py-4 cursor-pointer border-2 border-violet-200 text-violet-700 font-bold rounded-2xl hover:border-violet-300 hover:bg-violet-50 transition-all",
 
     // Stats
     statsContainer: "flex flex-wrap sm:flex-nowrap items-center gap-6 sm:gap-8 pt-6",
@@ -106,7 +106,7 @@ export const landingPageStyles = {
     ctaTitle: "text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 sm:mb-6",
     ctaTitleGradient: "bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent",
     ctaDescription: "text-base sm:text-lg text-slate-600 mb-6 sm:mb-10 max-w-2xl mx-auto font-medium",
-    ctaButton: "group relative px-8 sm:px-12 py-3 sm:py-5 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-black text-lg rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-violet-200",
+    ctaButton: "group relative px-8 sm:px-12 cursor-pointer py-3 sm:py-5 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-black text-lg rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-violet-200",
     ctaButtonOverlay: "absolute inset-0 bg-gradient-to-r from-fuchsia-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity",
     ctaButtonText: "relative",
 
@@ -240,8 +240,8 @@ export const authStyles = {
     signupTitle: "text-2xl font-black text-slate-900 mb-2",
     signupSubtitle: "text-slate-600 font-medium",
     signupForm: "space-y-4",
-    signupSubmit: "w-full py-4 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-black rounded-2xl hover:scale-105 hover:shadow-xl hover:shadow-rose-200 transition-all text-lg",
-    signupSwitchButton: "font-black text-rose-600 hover:text-pink-600 transition-colors"
+    signupSubmit: "w-full py-4 bg-gradient-to-r cursor-pointer from-rose-500 to-pink-600 text-white font-black rounded-2xl hover:scale-105 hover:shadow-xl hover:shadow-rose-200 transition-all text-lg",
+    signupSwitchButton: "font-black text-rose-600 cursor-pointer hover:text-pink-600 transition-colors"
 };
 
 export const shimmerStyle = `
@@ -426,7 +426,7 @@ export const modalStyles = {
     header: "flex items-center justify-between p-6 border-b border-violet-100 bg-gradient-to-r from-white to-violet-50",
     title: "text-xl font-black text-slate-900",
     actionButton: "flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold rounded-xl hover:scale-105 transition-all shadow-lg mr-12",
-    closeButton: "absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/80 hover:bg-red-50 text-slate-400 hover:text-red-500 rounded-xl transition-all shadow-lg hover:scale-110 z-10",
+    closeButton: "absolute top-4 cursor-pointer right-4 w-10 h-10 flex items-center justify-center bg-white/80 hover:bg-red-50 text-slate-400 hover:text-red-500 rounded-xl transition-all shadow-lg hover:scale-110 z-10",
     body: "flex-1 overflow-y-auto"
 };
 
@@ -480,7 +480,7 @@ export const infoStyles = {
 
     // WorkExperience
     workContainer: "mb-6",
-    workHeader: "flex items-start justify-between mb-2",
+    workHeader: "flex items-start w-[350px] justify-between mb-2",
     workCompany: "text-base font-semibold pb-2 text-gray-900",
     workRole: "text-base font-medium text-gray-700",
     workDuration: color => `text-sm font-bold italic`,

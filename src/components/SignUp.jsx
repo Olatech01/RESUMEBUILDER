@@ -7,6 +7,7 @@ import axiosInstance from '@/utils/axiosInstance';
 import { API_PATH } from '@/utils/apiPaths';
 import { useRouter } from 'next/navigation';
 import Inputs from './Inputs';
+import toast from 'react-hot-toast';
 
 const SignUp = ({ setCurrentPage }) => {
     const [fullName, setFullName] = useState('');
@@ -45,12 +46,13 @@ const SignUp = ({ setCurrentPage }) => {
                 password
             })
 
-            const { token } = response.data
+            const { user } = response.data
 
-            if (token) {
-                localStorage.setItem('token', token)
-                updateUser(response.data)
+            if (user?.token) {
+                localStorage.setItem('token', user.token)
+                updateUser({ ...user, token: user.token })
                 router.push('/dashboard')
+                toast.success("Account created successfully")
             }
         } catch (error) {
             setError(error.response?.data?.message || "Something went wrong, please try again")

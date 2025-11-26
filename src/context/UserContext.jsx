@@ -1,11 +1,9 @@
-"use client"
+"use client";
 import { API_PATH } from "@/utils/apiPaths";
 import axiosInstance from "@/utils/axiosInstance";
 import React, { createContext, useEffect, useState } from "react";
 
-
-
-export const UserContext = createContext()
+export const UserContext = createContext();
 
 
 const UserProvider = ({ children }) => {
@@ -38,7 +36,9 @@ const UserProvider = ({ children }) => {
 
     const updateUser = (userData) => {
         setUser(userData)
-        localStorage.setItem("token", userData.token)
+        if (userData?.token) {
+            localStorage.setItem("token", userData.token)
+        }
         setLoading(false)
     }
 

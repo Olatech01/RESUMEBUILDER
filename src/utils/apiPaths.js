@@ -17,7 +17,7 @@ export const API_PATH = {
 
         UPDATE: (id) => `/api/resume/${id}`,
         DELETE: (id) => `/api/resume/${id}`,
-        UPLOAD_IMAGES: (id) => `/api/resume/${id}/upload-images`,
+        UPLOAD_IMAGES: (id) => `/api/resume/${id}/upload-image`,
     },
     image: {
         UPLOAD_IMAGE: 'api/auth/upload-image'
