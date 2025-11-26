@@ -9,7 +9,7 @@ import { ArrowLeft, Check, Download, Loader2, Palette, Save, Trash2 } from 'luci
 import { useParams, useRouter } from 'next/navigation'
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
-
+import { RatingInput } from '@/components/ResumeSection'
 import StepProgress from '@/components/StepProgress'
 import { AlertCircle } from 'react-feather'
 import { AdditionalInfoForm, CertificationInfoForm, ContactInfoForm, EducationDetailsForm, ProfileInfoForm, ProjectDetailForm, SkillsInfoForm, WorkExperienceForm } from '@/components/Forms'

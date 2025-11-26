@@ -16,6 +16,7 @@ import {
 } from "../assets/dummystyle";
 import Inputs from "./Inputs";
 import { RatingInput } from "./ResumeSection";
+// import { RatingInput } from "./ResumeSection";
 
 // AdditionalInfoForm Component
 export const AdditionalInfoForm = ({ languages, interests, updateArrayItem, addArrayItem, removeArrayItem }) => {
@@ -434,7 +435,7 @@ export const SkillsInfoForm = ({ skillsInfo, updateArrayItem, addArrayItem, remo
                                     Proficiency ({skill.progress ? Math.round(skill.progress / 20) : 0}/5)
                                 </label>
                                 <div className="mt-2">
-                                    <RatingInputs
+                                    <RatingInput
                                         value={skill.progress || 0}
                                         total={5}
                                         color="#f59e0b"
