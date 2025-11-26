@@ -14,6 +14,7 @@ const Login = ({ setCurrentPage }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const { updateUser } = useContext(UserContext);
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -38,6 +39,7 @@ const Login = ({ setCurrentPage }) => {
 
 
     try {
+      setLoading(true);
       const response = await axiosInstance.post(API_PATH.AUTH.LOGIN, { email, password });
 
       const { statusCode, user } = response.data;
@@ -52,6 +54,8 @@ const Login = ({ setCurrentPage }) => {
       }
     } catch (error) {
       setError(error.response?.data?.message || "Something went wrong, please try again")
+    } finally {
+      setLoading(false);
     }
   }
   return (
@@ -83,12 +87,12 @@ const Login = ({ setCurrentPage }) => {
 
         {error && <div className={styles.errorMessage}>{error}</div>}
         <button type='submit' className={styles.signupSubmit}>
-          Sign In
+          {loading ? 'Logging in...' : 'Login'}
         </button>
 
 
         <p className={styles.switchText}>
-         Dont have an account{' '}
+          Dont have an account{' '}
           <button onClick={() => setCurrentPage('signup')}
             type='button'
             className={styles.signupSwitchButton}>

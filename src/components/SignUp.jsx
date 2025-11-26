@@ -15,6 +15,7 @@ const SignUp = ({ setCurrentPage }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const { updateUser } = useContext(UserContext);
+    const [loading, setLoading] = useState(false);
 
 
     const router = useRouter()
@@ -40,6 +41,7 @@ const SignUp = ({ setCurrentPage }) => {
 
         setError('')
         try {
+            setLoading
             const response = await axiosInstance.post(API_PATH.AUTH.REGISTER, {
                 name: fullName,
                 email,
@@ -56,6 +58,8 @@ const SignUp = ({ setCurrentPage }) => {
             }
         } catch (error) {
             setError(error.response?.data?.message || "Something went wrong, please try again")
+        } finally {
+            setLoading(false);
         }
 
     }
@@ -97,7 +101,7 @@ const SignUp = ({ setCurrentPage }) => {
 
                 {error && <div className={styles.errorMessage}>{error}</div>}
                 <button type='submit' className={styles.signupSubmit}>
-                    Create Account
+                    {loading ? 'Creating Account...' : 'Create Account'}
                 </button>
 
 
