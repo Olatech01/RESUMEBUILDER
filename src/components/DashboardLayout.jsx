@@ -10,16 +10,16 @@ const DashboardLayout = ({ activeMenu, children }) => {
     const { user, loading } = useUser() 
     const router = useRouter()
 
-    // if (loading) {
-    //     return (
-    //         <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-    //             <div className="text-center">
-    //                 <Loader2 className="animate-spin mx-auto mb-4" size={32} />
-    //                 <p>Loading...</p>
-    //             </div>
-    //         </div>
-    //     )
-    // }
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="text-center">
+                    <Loader2 className="animate-spin mx-auto mb-4" size={32} />
+                    <p>Loading...</p>
+                </div>
+            </div>
+        )
+    }
 
     if (!user) {
         return (

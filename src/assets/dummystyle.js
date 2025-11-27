@@ -328,7 +328,7 @@ export const educationDetailsStyles = {
 export const profileInfoStyles = {
     container: "p-8 bg-gradient-to-br from-white to-rose-50",
     heading: "text-2xl font-black text-slate-900 mb-8",
-    textarea: "w-full p-4 bg-white border border-rose-200 rounded-xl focus:border-rose-400 focus:ring-4 focus:ring-rose-50 transition-all outline-none resize-none",
+    textarea: "w-full p-4 bg-white border border-rose-200 min-h-[200px] rounded-xl focus:border-rose-400 focus:ring-4 focus:ring-rose-50 transition-all outline-none resize-none",
 };
 
 // ProjectDetailForm Styles

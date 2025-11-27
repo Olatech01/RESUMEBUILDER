@@ -12,7 +12,7 @@ const Generate = () => {
     const router = useRouter()
     const [jobTitle, setJobTitle] = useState("")
     const [title, setTitle] = useState("")
-    const [error, setError] =useState("")
+    const [error, setError] = useState("")
 
     const generateResume = async (e) => {
         e.preventDefault()
@@ -26,7 +26,7 @@ const Generate = () => {
             if (response?.data && response?.data?.resume || response?.data?.response?._id) {
                 toast.success("Resume Generated Successfully!!")
                 router.push(`/resume/${response.data?.resume?._id}`)
-            } 
+            }
         } catch (error) {
             console.log(error)
             toast.error("Failed to generate resume")
@@ -37,10 +37,10 @@ const Generate = () => {
     return (
         <div className='w-full max-w-md p-8 bg-white rounded-2xl border border-gray-100 shadow-lg'>
             <h3 className='text-2xl font-bold text-gray-900 mb-2'>
-                Create New Resume
+                AI-Powered Resume
             </h3>
             <p className='text-gray-600 mb-8'>
-                Give your resume a title to get started. You can customize everything later.
+                Generate a professional resume tailored to your target job role.
             </p>
 
 

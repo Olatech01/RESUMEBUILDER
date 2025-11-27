@@ -12,6 +12,7 @@ import Modal from '@/components/Modal'
 import CreateResumeForm from '@/components/CreateResumeForm'
 import { RiAiGenerate2 } from "react-icons/ri";
 import Generate from '@/components/Generate'
+import { Upload } from 'react-feather'
 
 
 const Dashboard = () => {
@@ -158,7 +159,7 @@ const Dashboard = () => {
                         </p>
                     </div>
 
-                    <div className='flex gap-4'>
+                    <div className='flex md:flex-row flex-col gap-4'>
                         <button className={styles.createButton}
                             onClick={() => setOpenCreateModal(true)}>
                             <div className={styles.createButtonOverlay}></div>
@@ -174,6 +175,13 @@ const Dashboard = () => {
                                 Generate with AI <RiAiGenerate2 className='inline-block ml-1 mb-1' size={18} />
                             </span>
                         </button>
+                        {/* <button className={styles.createButton}
+                            onClick={() => setOpenUpload(true)}>
+                            <div className={styles.createButtonOverlay}></div>
+                            <span className={styles.createButtonContent}>
+                                Upload Resume <Upload className='inline-block ml-1 mb-1' size={18} />
+                            </span>
+                        </button> */}
                     </div>
                 </div>
 
@@ -242,14 +250,14 @@ const Dashboard = () => {
 
             <Modal isOpen={openCreateModal} onClose={() => setOpenCreateModal(false)}>
                 <div className='p-6'>
-                    <div className={styles.modalHeader}>
+                    {/* <div className={styles.modalHeader}>
                         <h3 className={styles.modalTitle}>
                             Create New Resume
                         </h3>
                         <button className={styles.modalCloseButton} onClick={() => setOpenCreateModal(false)}>
                             X
                         </button>
-                    </div>
+                    </div> */}
 
                     <CreateResumeForm
                         onSuccess={() => {
@@ -278,7 +286,6 @@ const Dashboard = () => {
                     />
                 </div>
             </Modal>
-
             <Modal
                 isOpen={showDeleteConfirm}
                 onClose={() => setShowDeleteConfirm(false)}

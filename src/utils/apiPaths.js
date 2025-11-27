@@ -21,6 +21,7 @@ export const API_PATH = {
         UPLOAD_IMAGES: (id) => `/api/resume/${id}/upload-image`,
 
         GENERATE: "/api/resume/ai-generate",
+        UPLOAD: "/api/resume/upload"
     },
     image: {
         UPLOAD_IMAGE: 'api/auth/upload-image'
