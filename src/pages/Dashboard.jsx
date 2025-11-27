@@ -10,6 +10,9 @@ import { ResumeSummaryCard } from '@/Reusable/Cards'
 import moment from 'moment'
 import Modal from '@/components/Modal'
 import CreateResumeForm from '@/components/CreateResumeForm'
+import { RiAiGenerate2 } from "react-icons/ri";
+import Generate from '@/components/Generate'
+
 
 const Dashboard = () => {
     const router = useRouter()
@@ -18,6 +21,7 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true)
     const [resumeToDelete, setResumeToDelete] = useState(null)
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+    const [openGenerate, setOpenGenerate] = useState(false)
 
     // Calculate completion percentage for a resume
     const calculateCompletion = (resume) => {
@@ -94,6 +98,7 @@ const Dashboard = () => {
 
 
 
+
     const fetchAllResumes = async () => {
         try {
             setLoading(true)
@@ -136,7 +141,7 @@ const Dashboard = () => {
     const handleDeleteClick = (id) => {
         setResumeToDelete(id)
         setShowDeleteConfirm(true)
-        
+
     }
 
 
@@ -160,6 +165,13 @@ const Dashboard = () => {
                             <span className={styles.createButtonContent}>
                                 Create Now
                                 <LucideFilePlus className='group-hover:translate-x-1 transition-transform' size={18} />
+                            </span>
+                        </button>
+                        <button className={styles.createButton}
+                            onClick={() => setOpenGenerate(true)}>
+                            <div className={styles.createButtonOverlay}></div>
+                            <span className={styles.createButtonContent}>
+                                Generate with AI <RiAiGenerate2 className='inline-block ml-1 mb-1' size={18} />
                             </span>
                         </button>
                     </div>
@@ -247,6 +259,25 @@ const Dashboard = () => {
                     />
                 </div>
             </Modal>
+            <Modal isOpen={openGenerate} onClose={() => setOpenGenerate(false)}>
+                <div className='p-6'>
+                    <div className={styles.modalHeader}>
+                        <h3 className={styles.modalTitle}>
+                            Generate New Resume
+                        </h3>
+                        <button className={styles.modalCloseButton} onClick={() => setOpenCreateModal(false)}>
+                            X
+                        </button>
+                    </div>
+
+                    <Generate
+                        onSuccess={() => {
+                            setOpenGenerate(false)
+                            fetchAllResumes()
+                        }}
+                    />
+                </div>
+            </Modal>
 
             <Modal
                 isOpen={showDeleteConfirm}
@@ -254,19 +285,19 @@ const Dashboard = () => {
                 title="Confirm Deletion"
                 showActionBtn
                 actionBtnText="Delete"
-                actionBtnClassName= "bg-red-600 hover:bg-red-700" 
+                actionBtnClassName="bg-red-600 hover:bg-red-700"
                 onActionClick={handleDeleteResume}
             >
                 <div className='p-4'>
                     <div className='flex flex-col items-center text-center'>
                         <div className={styles.deleteIconWrapper}>
-                            <LucideTrash2 size={24} className='text-orange-600'/>
+                            <LucideTrash2 size={24} className='text-orange-600' />
                         </div>
                         <h3 className={styles.deleteTitle}>
                             Delete Resume?
                         </h3>
                         <p className={styles.deleteText}>
-                          Are you sure you want to delete this resume? This action cannot be undone  
+                            Are you sure you want to delete this resume? This action cannot be undone
                         </p>
                     </div>
                 </div>

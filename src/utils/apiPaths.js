@@ -1,5 +1,6 @@
 
 export const BASE_URL = "https://resumebuilder-backend-3za7.onrender.com";
+// export const BASE_URL = "http://localhost:5000";
 
 
 export const API_PATH = {
@@ -18,6 +19,8 @@ export const API_PATH = {
         UPDATE: (id) => `/api/resume/${id}`,
         DELETE: (id) => `/api/resume/${id}`,
         UPLOAD_IMAGES: (id) => `/api/resume/${id}/upload-image`,
+
+        GENERATE: "/api/resume/ai-generate",
     },
     image: {
         UPLOAD_IMAGE: 'api/auth/upload-image'

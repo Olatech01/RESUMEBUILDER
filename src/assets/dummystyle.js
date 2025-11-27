@@ -128,7 +128,7 @@ export const dashboardStyles = {
     headerSubtitle: "text-gray-600",
 
     // Create Button
-    createButton: "group relative px-10 py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-violet-200",
+    createButton: "group relative px-10 cursor-pointer text-center flex items-center justify-center py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-violet-200",
     createButtonOverlay: "absolute inset-0 bg-gradient-to-r from-fuchsia-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity",
     createButtonContent: "relative flex items-center gap-3",
 
