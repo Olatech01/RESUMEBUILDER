@@ -111,19 +111,6 @@ const UploadResumeModal = () => {
 
     return (
         <div className='w-full'>
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-gray-100">
-                <h2 className="text-xl font-semibold text-gray-900">
-                    Upload Resume PDF
-                </h2>
-                <button
-                    onClick={handleClose}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                    <X className="h-5 w-5 text-gray-500" />
-                </button>
-            </div>
-
             {/* Content */}
             <div className="p-6">
                 {/* Title Field */}

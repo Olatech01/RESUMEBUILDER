@@ -75,9 +75,9 @@ const TemplateThree = ({ resumeData = {}, containerWidth }) => {
             </header>
 
             {/* Two-Column Layout */}
-            <div className="grid grid-cols-12 gap-4 px-8 pb-8">
+            <div className="grid md:grid-cols-12 flex-col-reverse grid-cols-1 gap-4 px-8 pb-8">
                 {/* LEFT SIDEBAR - 5 columns */}
-                <aside className="col-span-5 space-y-5 pr-4 border-r border-gray-300">
+                <aside className="col-span-5 space-y-5 pr-4 md:border-r border-gray-300">
                     {/* Contact */}
                     <section>
                         <h2 className="text-sm font-bold uppercase text-gray-800 mb-2 tracking-wider">CONTACT</h2>
@@ -190,7 +190,7 @@ const TemplateThree = ({ resumeData = {}, containerWidth }) => {
                 </aside>
 
                 {/* MAIN CONTENT - 7 columns */}
-                <main className="col-span-7 space-y-5 pl-4">
+                <main className="col-span-7 space-y-5 md:pl-4">
                     {/* Work Experience */}
                     {workExperience.length > 0 && (
                         <section>

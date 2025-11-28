@@ -423,7 +423,7 @@ export const titleInputStyles = {
 export const modalStyles = {
     overlay: "fixed inset-0 flex items-center justify-center w-full h-full bg-black/60 backdrop-blur-sm z-50",
     container: "relative flex flex-col bg-white/95 backdrop-blur-xl shadow-2xl rounded-3xl overflow-hidden border border-violet-100 max-w-[95vw] max-h-[95vh]",
-    header: "flex items-center justify-between p-6 border-b border-violet-100 bg-gradient-to-r from-white to-violet-50",
+    header: "flex md:items-center gap-3 md:flex-row flex-col justify-between p-6 border-b border-violet-100 bg-gradient-to-r from-white to-violet-50",
     title: "text-xl font-black text-slate-900",
     actionButton: "flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold rounded-xl hover:scale-105 transition-all shadow-lg mr-12",
     closeButton: "absolute top-4 cursor-pointer right-4 w-10 h-10 flex items-center justify-center bg-white/80 hover:bg-red-50 text-slate-400 hover:text-red-500 rounded-xl transition-all shadow-lg hover:scale-110 z-10",
@@ -480,7 +480,7 @@ export const infoStyles = {
 
     // WorkExperience
     workContainer: "mb-6",
-    workHeader: "flex items-start w-[350px] justify-between mb-2",
+    workHeader: "flex items-start md:w-[350px] justify-between mb-2",
     workCompany: "text-base font-semibold pb-2 text-gray-900",
     workRole: "text-base font-medium text-gray-700",
     workDuration: color => `text-sm font-bold italic`,

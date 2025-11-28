@@ -45,18 +45,24 @@ const CreateResumeForm = () => {
     }
     return (
         <div className='w-full max-w-md py-8 px-4 bg-white rounded-2xl border border-gray-100 shadow-lg'>
-            <h3 className='text-2xl font-bold text-gray-900 mb-2'>
-                Create New Resume
-            </h3>
-            <p className='text-gray-600 mb-8'>
-                Give your resume a title to get started. You can customize everything later.
-            </p>
+            {activeTab === "create" && (
+                <h2 className='text-2xl font-semibold mb-2'>Create a New Resume</h2>
+            )}
+            {activeTab === "upload" && (
+                <h2 className='text-2xl font-semibold mb-2'>Upload Your Resume</h2>
+            )}
+            {activeTab === "create" && (
+                <p className='text-gray-600 mb-6'>Start from scratch and build your resume step by step.</p>
+            )}
+            {activeTab === "upload" && (
+                <p className='text-gray-600 mb-6'>Upload an existing resume to edit and enhance it.</p>
+            )}
 
             <div className='flex gap-4 pb-8'>
-                <button onClick={() => setActiveTab("create")} className={`w-full ${activeTab === "create" ? "border-b-2 border-yellow-400" : ""}`}>
+                <button onClick={() => setActiveTab("create")} className={`w-full pb-2.5 ${activeTab === "create" ? "border-b-2 border-yellow-400" : ""}`}>
                     Create
                 </button>
-                <button onClick={() => setActiveTab("upload")} className={`w-full ${activeTab === "upload" ? "border-b-2 border-yellow-400" : ""}`}>
+                <button onClick={() => setActiveTab("upload")} className={`w-full pb-2.5 ${activeTab === "upload" ? "border-b-2 border-yellow-400" : ""}`}>
                     Upload
                 </button>
             </div>
